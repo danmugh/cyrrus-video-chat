@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
+
+.nav__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+}
+
+.nav {
+    /*background: chartreuse;*/
+    /*background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);*/
+    /*background: linear-gradient(270deg, rgba(94,7,66,1) 0%, rgba(0,58,140,1) 100%);*/
+
+    /*background: linear-gradient(270deg, rgb(7, 13, 96) 13%, rgba(29,57,196,1) 50%, rgb(9, 17, 98) 94%);*/
+    background: linear-gradient(270deg, rgb(11, 18, 112) 13%, rgb(32, 67, 243) 50%, rgb(14, 23, 114) 94%);
+
+
+    width: 30vw;
+    min-width: 400px;
+    /*width: 370px;*/
+
+    height: 70px;
+    position: fixed;
+    top: 0;
+    transition: 850ms;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav.active {
+    top: -30%;
+    transition: 450ms;
+    /*height: 30vh;*/
+    /*background: lawngreen;*/
+}
+
+.nav h3 {
+    /*font-family: 'Marcellus SC', serif;*/
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 4px;
+    font-size: 27px;
+    color: #e9d2ce;
+    /*color: #0E0B0F;*/
+
+}
+
+.notification__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /*background: chartreuse;*/
+    /*background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);*/
+    background: linear-gradient(90deg, rgba(94,7,66,1) 0%, rgba(0,58,140,1) 100%);
+
+    width: 30vw;
+    min-width: 400px;
+    /*width: 370px;*/
+
+    height: 90px;
+    padding: 7px;
+    color: #0E0B0F;
+    position: fixed;
+    top: -30%;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+
+    transition: 850ms;
+
+    /*height: 09vh;*/
+    min-height: 70px;
+
+}
+
+.notification.active {
+    top: 0;
+    transition: 450ms;
+    /*height: 30vh;*/
+    /*background: lawngreen;*/
+}
+
+.notification h3 {
+    margin-right: 15px;
+    font-family: 'Marcellus SC', serif;
+    letter-spacing: 4px;
+    font-size: 20px;
+    color: #c1291f;
+}
+
+/*call phone*/
+
+.call {
+    /*background: mediumblue;*/
+
+    position: relative;
+    top: -25px;
+    left: -10px;
+}
+
+.call-phone {
+    /*background: lawngreen;*/
+
+
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+
+}
+.call-phone__circle {
+    width: 160px;
+    height: 160px;
+    top: 20px;
+    left: 20px;
+    margin: 0;
+    position: absolute;
+    background-color: transparent;
+    border-radius: 100%;
+    border: 2px solid rgba(244,67,54,0.4);
+    animation: call-phone__circle-anim 1.2s infinite ease-in-out;
+    transition: all 0.5s;
+    vertical-align: baseline;
+}
+
+@keyframes call-phone__circle-anim{
+    0%{transform:rotate(0deg) scale(0.5) skew(1deg);
+        opacity:.1  }
+    30%{transform:rotate(0deg) scale(0.7) skew(1deg);
+        opacity:.5  }
+    100%{transform:rotate(0deg) scale(1) skew(1deg);
+        opacity:.1  }
+}
+.call-phone__circle-fill {
+    background-color: rgba(244,67,54,1);
+    opacity: 0.75;
+    width: 100px;
+    height: 100px;
+    top: 50px;
+    left: 50px;
+    position: absolute;
+    border-radius: 100%;
+    opacity: 0.1;
+    animation: call-phone__circle-fill-anim 2.3s infinite ease-in-out;
+    transition: all 0.5s;
+}
+
+@keyframes call-phone__circle-fill-anim{
+    0%{transform:rotate(0deg) scale(0.7) skew(1deg);
+        opacity:.2  }
+    50%{transform:rotate(0deg) scale(1) skew(1deg);
+        opacity:.2  }
+    100%{transform:rotate(0deg) scale(0.7) skew(1deg);opacity:.2  }
+}
+.call-phone__circle-img {
+    position: relative;
+    background-color: rgba(244,67,54,0.1);
+    width: 60px;
+    height: 60px;
+    top: 65px;
+    left: 65px;
+    position: absolute;
+    border: 5px solid #f44336;
+    border-radius: 50%;
+    border-radius: 100%;
+    opacity: 0.7;
+    animation: call-phone__circle-img-anim 1s infinite ease-in-out;
+}
+@keyframes call-phone__circle-img-anim{
+    0%{transform:rotate(0deg) scale(1) skew(1deg)  }
+    10%{transform:rotate(-25deg) scale(1) skew(1deg)  }
+    20%{transform:rotate(25deg) scale(1) skew(1deg)  }
+    30%{transform:rotate(-25deg) scale(1) skew(1deg)  }
+    40%{transform:rotate(25deg) scale(1) skew(1deg)  }
+    100%,50%{transform:rotate(0deg) scale(1) skew(1deg)  }
+}
+
+.icon-phone {
+    position: absolute;
+    z-index: 30;
+    font-size: 36px;
+    color: #f44336;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px 0 5px 0;
+}
+
+
+
+@media screen and (max-width: 760px) {
+
+    .nav {
+
+        min-width: 300px;
+
+        height: 50px;
+        color: #0E0B0F;
+        position: fixed;
+        top: 0;
+        transition: 850ms;
+        border-bottom-right-radius: 35px;
+        border-bottom-left-radius: 35px;
+
+    }
+
+    .nav.active {
+        top: -30%;
+        transition: 450ms;
+        /*height: 30vh;*/
+        /*background: lawngreen;*/
+    }
+
+    .nav h3 {
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+        font-size: 22px;
+        /*color: #0E0B0F;*/
+        color: #e9d2ce;
+
+    }
+
+    .notification {
+
+        width: 93vw;
+        min-width: 350px;
+
+        height: 90px;
+        padding: 7px;
+
+    }
+
+    .notification h3 {
+        margin-right: 15px;
+        font-family: 'Marcellus SC', serif;
+        letter-spacing: 4px;
+        font-size: 20px;
+        color: #c1291f;
+    }
+
+}
