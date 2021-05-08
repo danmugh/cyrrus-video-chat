@@ -9,6 +9,18 @@ const Video = () => {
     return (
         <div className="video__wrapper" >
 
+            {callAccepted && !callEnded && (
+                <>
+                    <div className="video__stream" >
+                        <video playsInline ref={userVideo} autoPlay className="video__container" />
+                        <div className="overlay__wrapper">
+                            <h4>{call.name || 'Name'}</h4>
+
+                        </div>
+                    </div>
+                </>
+            )}
+
             {stream && (
                 <>
                     <div className="video__stream" >
@@ -29,15 +41,15 @@ const Video = () => {
 
             )}
 
-            {callAccepted && !callEnded && (
-                <div className="video__stream" >
-                    <video playsInline ref={userVideo} autoPlay className="video__container" />
-                    <div className="overlay__wrapper">
-                        <h4>{call.name || 'Name'}</h4>
+            {/*{callAccepted && !callEnded && (*/}
+            {/*    <div className="video__stream" >*/}
+            {/*        <video playsInline ref={userVideo} autoPlay className="video__container" />*/}
+            {/*        <div className="overlay__wrapper">*/}
+            {/*            <h4>{call.name || 'Name'}</h4>*/}
 
-                    </div>
-                </div>
-            )}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*)}*/}
 
         </div>
     );

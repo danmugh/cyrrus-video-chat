@@ -196,7 +196,29 @@
     padding: 5px 0 5px 0;
 }
 
+.info__modal {
+    margin-top: 2px;
+    fontFamily: 'Montserrat',
+    /*background: #63e5e1;*/
+}
 
+.info__modal_title {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+
+.info__modal_description p {
+    text-align: justify;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
 
 @media screen and (max-width: 760px) {
 

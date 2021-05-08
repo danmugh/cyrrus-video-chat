@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import "./Sidebar.css";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-
 import {withStyles, makeStyles, TextField, Button} from "@material-ui/core";
 import {Assignment, Phone, PhoneDisabled} from "@material-ui/icons";
 
@@ -148,14 +147,10 @@ const Sidebar = () => {
                                     </button>
                                 )}
 
-
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
     );
@@ -190,6 +185,24 @@ const useStyles = makeStyles((theme) => ({
     // '& .MuiButton-fullWidth ' : {
     //     width: '100px'
     // },
+
+    paper: {
+        backgroundColor: theme.palette.background.paper,
+        border: 'none',
+        borderRadius: '10px',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(4, 4, 3),
+    },
+
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        "&:focus":{
+            outline: "none"
+        }
+    },
 
     margin: {
         margin: theme.spacing(0),

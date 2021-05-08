@@ -102,80 +102,80 @@ const Sidebar_Small = () => {
 
                             {
                                 infos && !call &&
-                                    (
-                                        <div className={classes.paper}>
-                                            {/*<h2 id="spring-modal-title">Spring modal</h2>*/}
-                                            {/*<p id="spring-modal-description">react-spring animates me.</p>*/}
+                                (
+                                    <div className={classes.paper}>
+                                        {/*<h2 id="spring-modal-title">Spring modal</h2>*/}
+                                        {/*<p id="spring-modal-description">react-spring animates me.</p>*/}
 
-                                            <CssTextValidator
-                                                variant="standard"
-                                                className={classes.margin}
-                                                fullWidth
-                                                label="Enter your name"
-                                                onChange={(e) => setName(e.target.value)}
-                                                name="email"
-                                                value={name}
-                                                autoComplete='off'
-                                                InputProps={{
-                                                    className: classes.label,
-                                                }}
-                                            />
-                                            <br/>
+                                        <CssTextValidator
+                                            variant="standard"
+                                            className={classes.margin}
+                                            fullWidth
+                                            label="Enter your name"
+                                            onChange={(e) => setName(e.target.value)}
+                                            name="email"
+                                            value={name}
+                                            autoComplete='off'
+                                            InputProps={{
+                                                className: classes.label,
+                                            }}
+                                        />
+                                        <br/>
 
-                                            <CopyToClipboard text={me} >
-                                                <button type="button" className="btn" onClick={handleClose}  >
-                                                    <span className="btn__small__text">COPY YOUR ID</span>
-                                                    <span className="btn__icon">
+                                        <CopyToClipboard text={me} >
+                                            <button type="button" className="btn" onClick={handleClose}  >
+                                                <span className="btn__small__text">COPY YOUR ID</span>
+                                                <span className="btn__icon">
                                                         <Assignment fontSize="large" />
                                                     </span>
-                                                </button>
-                                            </CopyToClipboard>
+                                            </button>
+                                        </CopyToClipboard>
 
-                                        </div>
-                                    )
+                                    </div>
+                                )
                             }
 
                             {
                                 call & !infos &&
-                                    (
-                                        <div className={classes.paper} >
-                                            <CssTextValidator
-                                                variant="standard"
-                                                className={classes.margin}
-                                                fullWidth
-                                                label="ID to call"
-                                                onChange={(e) => setIdToCall(e.target.value)}
-                                                name="email"
-                                                value={idToCall}
-                                                autoComplete='off'
-                                                InputProps={{
-                                                    className: classes.label,
-                                                }}
-                                            />
+                                (
+                                    <div className={classes.paper} >
+                                        <CssTextValidator
+                                            variant="standard"
+                                            className={classes.margin}
+                                            fullWidth
+                                            label="ID to call"
+                                            onChange={(e) => setIdToCall(e.target.value)}
+                                            name="email"
+                                            value={idToCall}
+                                            autoComplete='off'
+                                            InputProps={{
+                                                className: classes.label,
+                                            }}
+                                        />
 
-                                            <br/>
+                                        <br/>
 
-                                            { callAccepted && !callEnded ? (
-                                                <button type="button" className="btn" onClick={leaveCall} >
+                                        { callAccepted && !callEnded ? (
+                                            <button type="button" className="btn" onClick={leaveCall} >
                                                     <span className="button__icon">
                                                     <PhoneDisabled fontSize="large" />
                                                     </span>
-                                                    <span className="button__text">HANG UP</span>
-                                                </button>
-                                            ) : (
-                                                <button type="button"
-                                                        onClick={() => callUser(idToCall)}
-                                                        className="btn">
+                                                <span className="button__text">HANG UP</span>
+                                            </button>
+                                        ) : (
+                                            <button type="button"
+                                                    onClick={() => callUser(idToCall)}
+                                                    className="btn">
                                                         <span
                                                             onClick={ handleClose }
                                                             className="button__icon">
                                                                 <Phone fontSize="large" />
                                                         </span>
-                                                        <span onClick={ handleClose } className="button__text">CALL</span>
-                                                </button>
-                                            )}
-                                        </div>
-                                    )
+                                                <span onClick={ handleClose } className="button__text">CALL</span>
+                                            </button>
+                                        )}
+                                    </div>
+                                )
                             }
 
 
@@ -218,7 +218,7 @@ const CssTextValidator = withStyles({
 const useStyles = makeStyles((theme) => ({
 
     paper: {
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: 'rgba(252,240,237,0.8)',
         border: 'none',
         borderRadius: '10px',
         boxShadow: theme.shadows[5],

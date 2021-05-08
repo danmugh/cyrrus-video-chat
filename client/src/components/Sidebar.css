@@ -71,6 +71,8 @@
 }
 
 .icon__wrapper {
+    /*background: chocolate;*/
+
     width: 200px;
     margin: auto;
     cursor: pointer;
@@ -140,6 +142,7 @@
 
     /*background: #429bf3;*/
 }
+
 
 .call__input {
     margin-right: 5px;
@@ -262,8 +265,6 @@ and (max-device-width: 1025px) {
         transition: 450ms;
         height: 25vh;
     }
-
-
 
 }
 
