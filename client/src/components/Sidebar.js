@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import "./Sidebar.css";
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import {withStyles, makeStyles, TextField, Button} from "@material-ui/core";
 import {Assignment, Phone, PhoneDisabled} from "@material-ui/icons";
 
-import { SocketContext } from '../Context';
+import {SocketContext} from '../Context';
 
 const Sidebar = () => {
-    const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
+    const {me, callAccepted, name, setName, callEnded, leaveCall, callUser} = useContext(SocketContext);
     const [idToCall, setIdToCall] = useState('');
     const [sidebar, setSidebar] = useState(false);
 
@@ -22,137 +22,148 @@ const Sidebar = () => {
     // console.log('My ID ===>', me)
 
     return (
-        <div className="sidebar__wrapper" >
-            <div className="sidebar" >
+        <>
+            <div className="reload__wrapper">
+                <div className="reload">
+                    <p>Please, reload the page!</p>
+                </div>
+            </div>
+            <div className="sidebar__wrapper">
+                <div className="sidebar">
 
-                <div className={ sidebar ? 'sidebar__content active' : 'sidebar__content' } >
+                    <div className={sidebar ? 'sidebar__content active' : 'sidebar__content'}>
 
-                    {
-                        sidebar ?
-                            <KeyboardArrowDownIcon onClick={ handleSidebar } style={{ fontSize: 60, cursor: 'pointer', color: '#0E0B0F' }} />
-                            :
-                            <KeyboardArrowUpIcon onClick={ handleSidebar } style={{ fontSize: 60, cursor: 'pointer', color: '#0E0B0F' }} />
+                        {
+                            sidebar ?
+                                <KeyboardArrowDownIcon onClick={handleSidebar}
+                                                       style={{fontSize: 60, cursor: 'pointer', color: '#0E0B0F'}}/>
+                                :
+                                <KeyboardArrowUpIcon onClick={handleSidebar}
+                                                     style={{fontSize: 60, cursor: 'pointer', color: '#0E0B0F'}}/>
 
-                    }
+                        }
 
-                    <div className="sidebar__items" >
-                        <div className="sidebar__item" >
-                            <div className="icon__wrapper">
-                                <div onClick={ handleSidebar } className="icon">
-                                    <div className="icon__content"
-                                         style={{ backgroundColor: '#e9d2ce' }} >
-                                        <div
-                                            className="info__button"
-                                            style={{ left: '0px' }}
-                                        >
-                                        </div>
-                                        <span
-                                            style={{ color: 'rgb(0,0,0)', marginLeft: '42px' }} >Account Info
+                        <div className="sidebar__items">
+                            <div className="sidebar__item">
+                                <div className="icon__wrapper">
+                                    <div onClick={handleSidebar} className="icon">
+                                        <div className="icon__content"
+                                             style={{backgroundColor: '#e9d2ce'}}>
+                                            <div
+                                                className="info__button"
+                                                style={{left: '0px'}}
+                                            >
+                                            </div>
+                                            <span
+                                                style={{color: 'rgb(0,0,0)', marginLeft: '42px'}}>Account Info
                                         </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <br />
-                            <div className="info__input" >
-
-                                <CssTextValidator
-                                    variant="standard"
-                                    className={classes.margin}
-                                    fullWidth
-                                    label="Enter your name"
-                                    onChange={(e) => setName(e.target.value)}
-                                    name="email"
-                                    value={name}
-                                    autoComplete='off'
-                                    InputProps={{
-                                        className: classes.label,
-                                    }}
-                                />
                                 <br/>
+                                <div className="info__input">
 
-                                <CopyToClipboard text={me} >
-                                    <button type="button" className="button" >
-                                        <span className="button__text">COPY YOUR ID</span>
-                                        <span className="button__icon">
-                                            <Assignment fontSize="large" />
+                                    <CssTextValidator
+                                        variant="standard"
+                                        className={classes.margin}
+                                        fullWidth
+                                        label="Enter your name"
+                                        onChange={(e) => setName(e.target.value)}
+                                        name="email"
+                                        value={name}
+                                        autoComplete='off'
+                                        InputProps={{
+                                            className: classes.label,
+                                        }}
+                                    />
+                                    <br/>
+
+                                    <CopyToClipboard text={me}>
+                                        <button type="button" className="button">
+                                            <span className="button__text">COPY YOUR ID</span>
+                                            <span className="button__icon">
+                                            <Assignment fontSize="large"/>
                                         </span>
-                                    </button>
-                                </CopyToClipboard>
+                                        </button>
+                                    </CopyToClipboard>
 
+
+                                </div>
 
                             </div>
 
-                        </div>
+                            <p className="copyright"
+                               style={{opacity: `${sidebar ? '1' : '0'}`, transition: '200ms'}}>Made
+                                with <span>&#128153;</span> in Cyrrus Labs</p>
 
-                        <p className="copyright" style={{ opacity: `${sidebar ? '1' : '0'}`, transition: '200ms' }} >Made with <span >&#128153;</span> in Cyrrus Labs</p>
+                            <div className="sidebar__item">
+                                <div className="icon__wrapper">
+                                    <div
 
-                        <div className="sidebar__item" >
-                            <div className="icon__wrapper">
-                                <div
+                                        onClick={callAccepted && !callEnded ? leaveCall : handleSidebar}
 
-                                    onClick={ callAccepted && !callEnded ? leaveCall : handleSidebar }
-
-                                    className="icon">
-                                    <div className="icon__content"
-                                         style={{ backgroundColor: '#e9d2ce' }} >
-                                        <div
-                                            className="call__button"
-                                            style={{ right: '0px' }}
-                                        >
-                                        </div>
-                                        <span
-                                            style={{ color: 'rgb(0,0,0)', marginLeft: '12px' }} >
-                                            { callAccepted && !callEnded ? <p>Hang Up call</p> : <p>Make a call</p> }
+                                        className="icon">
+                                        <div className="icon__content"
+                                             style={{backgroundColor: '#e9d2ce'}}>
+                                            <div
+                                                className="call__button"
+                                                style={{right: '0px'}}
+                                            >
+                                            </div>
+                                            <span
+                                                style={{color: 'rgb(0,0,0)', marginLeft: '12px'}}>
+                                            {callAccepted && !callEnded ? <p>Hang Up call</p> : <p>Make a call</p>}
                                         </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <br />
-                            <div className="call__input" >
-
-                                <CssTextValidator
-                                    variant="standard"
-                                    className={classes.margin}
-                                    fullWidth
-                                    label="ID to call"
-                                    onChange={(e) => setIdToCall(e.target.value)}
-                                    name="email"
-                                    value={idToCall}
-                                    autoComplete='off'
-                                    InputProps={{
-                                        className: classes.label,
-                                    }}
-                                />
 
                                 <br/>
+                                <div className="call__input">
 
-                                { callAccepted && !callEnded ? (
-                                    <button type="button" className="button" onClick={leaveCall} >
-                                    <span onClick={ handleSidebar } className="button__icon">
-                                        <PhoneDisabled fontSize="large" />
+                                    <CssTextValidator
+                                        variant="standard"
+                                        className={classes.margin}
+                                        fullWidth
+                                        label="ID to call"
+                                        onChange={(e) => setIdToCall(e.target.value)}
+                                        name="email"
+                                        value={idToCall}
+                                        autoComplete='off'
+                                        InputProps={{
+                                            className: classes.label,
+                                        }}
+                                    />
+
+                                    <br/>
+
+                                    {callAccepted && !callEnded ? (
+                                        <button type="button" className="button" onClick={leaveCall}>
+                                    <span onClick={handleSidebar} className="button__icon">
+                                        <PhoneDisabled fontSize="large"/>
                                     </span>
-                                        <span onClick={ handleSidebar } className="button__text">HANG UP</span>
-                                    </button>
-                                ) : (
-                                    <button type="button"
-                                            onClick={() => callUser(idToCall)}
-                                            className="button">
+                                            <span onClick={handleSidebar} className="button__text">HANG UP</span>
+                                        </button>
+                                    ) : (
+                                        <button type="button"
+                                                onClick={() => callUser(idToCall)}
+                                                className="button">
                                         <span
-                                            onClick={ handleSidebar }
+                                            onClick={handleSidebar}
                                             className="button__icon">
-                                            <Phone fontSize="large" />
+                                            <Phone fontSize="large"/>
                                         </span>
-                                        <span onClick={ handleSidebar } className="button__text">CALL</span>
-                                    </button>
-                                )}
+                                            <span onClick={handleSidebar} className="button__text">CALL</span>
+                                        </button>
+                                    )}
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
@@ -181,11 +192,6 @@ const CssTextValidator = withStyles({
 })(TextField);
 
 const useStyles = makeStyles((theme) => ({
-
-    // '& .MuiButton-fullWidth ' : {
-    //     width: '100px'
-    // },
-
     paper: {
         backgroundColor: theme.palette.background.paper,
         border: 'none',
@@ -193,21 +199,19 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: theme.shadows[5],
         padding: theme.spacing(4, 4, 3),
     },
-
     modal: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
 
-        "&:focus":{
+        "&:focus": {
             outline: "none"
         }
     },
-
     margin: {
         margin: theme.spacing(0),
     },
-    label : {
+    label: {
         fontFamily: 'Montserrat',
         fontSize: '17px',
         fontWeight: 'bold',
@@ -224,8 +228,6 @@ const useStyles = makeStyles((theme) => ({
         // width: '170px'
 
     }
-
-
 }));
 
 export default Sidebar;

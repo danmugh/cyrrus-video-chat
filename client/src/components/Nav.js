@@ -53,20 +53,6 @@ const Nav = () => {
         return () => clearTimeout(timer);
     }, []);
 
-    // if ( call.isReceivingCall && !callAccepted  ) {
-    //     setNotification(true)
-    //
-    //     console.log('New Notification')
-    // }
-
-    // if ( callAccepted ) {
-    //     setNotification(false)
-    // }
-    //
-    // const handleNotification = () => {
-    //     setNotification(!notification)
-    // };
-
     return (
         <div className="nav__wrapper" >
 

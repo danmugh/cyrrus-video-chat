@@ -1,3 +1,27 @@
+.reload__wrapper__small {
+    position: relative;
+
+    z-index: 9999;
+    display: none;
+}
+.reload__small {
+    background: linear-gradient(270deg, rgb(7, 14, 102) 13%, rgb(32, 67, 243) 50%, rgb(9, 17, 102) 94%);
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 200%);
+
+    border-radius: 20px;
+    padding: 20px;
+
+}
+.reload__small p {
+    font-family: 'Marcellus SC', serif;
+    letter-spacing: 4px;
+    font-size: 20px;
+    color: #ffffff;
+}
 .sidebar__small__wrapper {
     display: flex;
     justify-content: center;
@@ -87,4 +111,14 @@
 
 .removeOutline {
     outline: 0
+}
+
+@media screen and (min-width: 568px) {
+    .reload__wrapper__small {
+        display: block;
+    }
+
+    .sidebar__small__wrapper {
+        display: none;
+    }
 }

@@ -9,7 +9,6 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import { useSpring, animated } from 'react-spring/web.cjs';
 
-
 const Fade = React.forwardRef(function Fade(props, ref) {
     const { in: open, children, onEnter, onExited, ...other } = props;
     const style = useSpring({
@@ -34,7 +33,6 @@ const Fade = React.forwardRef(function Fade(props, ref) {
     );
 });
 
-
 const Sidebar_Small = () => {
     const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
     const classes = useStyles();
@@ -43,7 +41,6 @@ const Sidebar_Small = () => {
     const [open, setOpen] = React.useState(false);
     const [infos, setInfos] = React.useState(false);
     const [call, setCall] = React.useState(false);
-
 
     const handleOpenInfos = () => {
         setOpen(true);
@@ -61,9 +58,13 @@ const Sidebar_Small = () => {
         setInfos(false);
     };
 
-
     return (
-        <div>
+        <>
+            <div className="reload__wrapper__small">
+                <div className="reload__small">
+                    <p>Please, reload the page!</p>
+                </div>
+            </div>
             <div className="sidebar__small__wrapper" >
                 <div className="sidebar__small" >
                     {/*<p>Hey Guys, Jesus is Lord</p>*/}
@@ -74,7 +75,6 @@ const Sidebar_Small = () => {
                             fontSize="large" />
                         <p>Infos</p>
                     </span>
-
 
                     <span onClick={ callAccepted && !callEnded ? leaveCall : handleOpenCall } className="button__small__icon">
                        <Phone
@@ -187,7 +187,7 @@ const Sidebar_Small = () => {
 
 
             </div>
-        </div>
+        </>
     );
 };
 
